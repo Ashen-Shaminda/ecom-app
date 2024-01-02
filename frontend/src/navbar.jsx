@@ -1,67 +1,27 @@
-import React, { Component } from "react";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 
-const styles = {
-  background:
-    "linear-gradient(35deg, rgba(27,22,108,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 79%)",
-};
-
-export default class NavBar extends Component {
-  render() {
-    return (
-      <div style={styles}>
-        <nav className="navbar" style={{ height: "65px" }}>
-          <a class="navbar-brand" href="#">
-            <img
-              style={{ marginLeft: "20px" }}
-              src="https://icon-library.com/images/e-commerce-icon-png/e-commerce-icon-png-17.jpg"
-              width="40"
-              height="40"
-              alt=""
-            />
-            <span className="ml-2">
-              {" "}
-              <b> Apparex Clothing </b>
-            </span>
-          </a>
-          <ul>
-            <li>
-              <a href="/" style={{ fontSize: "18px" }}>
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="/products" style={{ fontSize: "18px" }}>
-                Product
-              </a>
-            </li>
-            <li>
-              <a href="/login" style={{ fontSize: "18px" }}>
-                Login
-              </a>
-            </li>
-            <li>
-              <a href="/register" style={{ fontSize: "18px" }}>
-                Register
-              </a>
-            </li>
-            <li>
-              <a href="/Seller" style={{ fontSize: "18px" }}>
-                Register As Seller
-              </a>
-            </li>
-            <li>
-              <a href="/products/cart" style={{ fontSize: "18px" }}>
-                Cart
-              </a>
-            </li>
-            <li>
-              <a href="/user" style={{ fontSize: "18px" }}>
-                Account
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    );
-  }
+function reusableNavbar() {
+  return (
+    <>
+      <Navbar bg="dark" data-bs-theme="dark">
+        <Container>
+          <Navbar.Brand href="/">Navbar</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/products">Products</Nav.Link>
+            <Nav.Link href="/login">Login</Nav.Link>
+            <Nav.Link href="/register">Register</Nav.Link>
+            <Nav.Link href="/seller">Register a Seller</Nav.Link>
+            <Nav.Link href="/products/cart">Cart</Nav.Link>
+            <Nav.Link href="/login">Login</Nav.Link>
+            <Nav.Link href="/user">User</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+    </>
+  );
 }
+
+export default reusableNavbar;
