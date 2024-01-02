@@ -1,41 +1,40 @@
-import React from 'react';
-import '../styles/cart.css';
-import Axios from 'axios';
+import React from "react";
+import "../styles/cart.css";
+import Axios from "axios";
+import NavBar from "../../navbar";
 
 var cartItem = [];
 
 class Cart extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
       cartList: [],
-      total: 0
-    }
+      total: 0,
+    };
   }
 
   componentDidMount() {
     var tot = 0;
 
-    cartItem = JSON.parse(localStorage.getItem('cart'));
+    cartItem = JSON.parse(localStorage.getItem("cart"));
     if (cartItem === null) {
       cartItem = [];
     } else {
       cartItem.map((item) => {
-        tot = tot + (item.product.price * item.qty)
-      })
+        tot = tot + item.product.price * item.qty;
+      });
 
-      localStorage.setItem('cartTotal', tot)
-      this.setState({ total: tot })
-      this.setState({ cartList: cartItem })
+      localStorage.setItem("cartTotal", tot);
+      this.setState({ total: tot });
+      this.setState({ cartList: cartItem });
     }
-
   }
 
   checkIndexInArray(productOBJ) {
     var i = 0;
     var index = 0;
-    cartItem = JSON.parse(localStorage.getItem('cart'));
+    cartItem = JSON.parse(localStorage.getItem("cart"));
     if (cartItem == null) {
       cartItem = [];
     }
@@ -50,60 +49,32 @@ class Cart extends React.Component {
   }
 
   async delete(id) {
-    const response = await Axios.get('/product/' + id);
+    const response = await Axios.get("/product/" + id);
     var index = this.checkIndexInArray(response.data);
-    console.log(index)
+    console.log(index);
     cartItem.splice(index, 1);
     this.setState({ cartList: cartItem });
     var tot = 0;
 
     cartItem.map((item) => {
-      tot = tot + (item.product.price * item.qty)
-    })
+      tot = tot + item.product.price * item.qty;
+    });
 
-    this.setState({ total: tot })
-    localStorage.setItem('cartTotal', tot);
-    localStorage.setItem('cart', JSON.stringify(cartItem));
+    this.setState({ total: tot });
+    localStorage.setItem("cartTotal", tot);
+    localStorage.setItem("cart", JSON.stringify(cartItem));
   }
 
   render() {
     return (
       <div>
-        <nav className="navbar" style={{ height: "65px" }}>
-          <a class="navbar-brand" href="#">
-            <img style={{ marginLeft: "20px" }} src="https://icon-library.com/images/e-commerce-icon-png/e-commerce-icon-png-17.jpg" width="40" height="40" alt="" />
-            <span className="ml-2"> <b> Apparex Clothing </b></span>
-          </a>
-          <ul>
-            <li>
-              <a href="/" style={{ fontSize: "18px" }}>Home</a>
-            </li>
-            <li>
-              <a href="/products" style={{ fontSize: "18px" }}>Product</a>
-            </li>
-            <li>
-              <a href="/login" style={{ fontSize: "18px" }}>Login</a>
-            </li>
-            <li>
-              <a href="/register" style={{ fontSize: "18px" }}>Register</a>
-            </li>
-            <li>
-              <a href="/Seller" style={{ fontSize: "18px" }}>Register As Seller</a>
-            </li>
-            <li>
-              <a href="/products/cart" style={{ fontSize: "18px" }}>Cart</a>
-            </li>
-            <li>
-              <a href="/user" style={{ fontSize: "18px" }}>Account</a>
-            </li>
-          </ul>
-        </nav>
+        <NavBar />
 
         <h2>Cart</h2>
         <div class="container">
           <div class="col-lg-12 table-responsive">
             <table class="table table-light table-borderless table-hover text-center mb-0">
-              <thead class="thead-dark col-12" >
+              <thead class="thead-dark col-12">
                 <tr>
                   <th>Item Name</th>
                   <th>Price</th>
@@ -119,7 +90,17 @@ class Cart extends React.Component {
                     <td>Rs. {product.product.price} </td>
                     <td> {product.qty} </td>
                     <td>Rs. {product.qty * product.product.price} </td>
-                    <td><button className='btn btn-danger' onClick={async () => { await this.delete(product.product._id); }} > X </button></td>
+                    <td>
+                      <button
+                        className="btn btn-danger"
+                        onClick={async () => {
+                          await this.delete(product.product._id);
+                        }}
+                      >
+                        {" "}
+                        X{" "}
+                      </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -127,8 +108,7 @@ class Cart extends React.Component {
           </div>
           <div class="col-lg-12 ">
             <div class="bg-light p-30 mb-5">
-              <div class="border-bottom pb-2">
-              </div>
+              <div class="border-bottom pb-2"></div>
               <div class="pt-2">
                 <div class="d-flex justify-content-between mt-2">
                   <h4>Total</h4>
@@ -136,10 +116,18 @@ class Cart extends React.Component {
                 </div>
               </div>
             </div>
-            <a href="/products" class="btn btn-outline-secondary col-3"> Continue Shopping </a>
-            <a href="/products/checkout" className='btn btn-primary offset-6 col-3 '> Checkout </a>
+            <a href="/products" class="btn btn-outline-secondary col-3">
+              {" "}
+              Continue Shopping{" "}
+            </a>
+            <a
+              href="/products/checkout"
+              className="btn btn-primary offset-6 col-3 "
+            >
+              {" "}
+              Checkout{" "}
+            </a>
           </div>
-
         </div>
       </div>
     );
