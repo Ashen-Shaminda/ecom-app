@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/home.css";
 import Axios from "axios";
-import NavBar from "../../navbar";
+import ReusableNavbar from "../ReusableNavbar";
 var cartItem = [];
 
 const styles = {
@@ -63,7 +63,7 @@ class Home extends React.Component {
       cartItem = [];
     }
     for (var i = 0; i < cartItem.length; i++) {
-      if (cartItem[i].product._id == productOBJ._id) {
+      if (cartItem[i].product._id === productOBJ._id) {
         status = true;
         break;
       }
@@ -79,8 +79,8 @@ class Home extends React.Component {
       cartItem = [];
     }
     console.log(cartItem);
-    for (var i = 0; i < cartItem.length; i++) {
-      if (cartItem[i].product._id == productOBJ._id) {
+    for (i = 0; i < cartItem.length; i++) {
+      if (cartItem[i].product._id === productOBJ._id) {
         index = i;
         break;
       }
@@ -97,7 +97,7 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <NavBar />
+        <ReusableNavbar />
         <div style={styles}>
           <div class="album py-5 bg-body-tertiary">
             <div class="container">

@@ -3,7 +3,7 @@ import "../styles/login.css";
 import Axios from "axios";
 import { json } from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
-import NavBar from "../../navbar";
+import NavBar from "../ReusableNavbar";
 
 const styles = {
   background:

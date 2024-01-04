@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/login.css";
 import Axios from "axios";
-import NavBar from "../../navbar";
+import NavBar from "../ReusableNavbar";
 
 class AddCato extends React.Component {
   constructor(props) {
@@ -82,7 +82,7 @@ class AddCato extends React.Component {
                   <label className="form-label">Category</label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="text"
                     placeholder=""
                     required

@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/login.css";
 import Axios from "axios";
-import NavBar from "../../navbar";
+import NavBar from "../ReusableNavbar";
 
 const styles = {
   background:
@@ -24,14 +24,17 @@ class Login extends React.Component {
     })
       .then(function (response) {
         if (
-          response.data.role == "customer" &&
-          response.data.state == "active"
+          response.data.role === "customer" &&
+          response.data.state === "active"
         ) {
           localStorage.setItem("isLogedIn", true);
           localStorage.setItem("user", JSON.stringify(response.data));
           window.location = "/User";
         }
-        if (response.data.role == "seller" && response.data.state == "active") {
+        if (
+          response.data.role === "seller" &&
+          response.data.state === "active"
+        ) {
           localStorage.setItem("isLogedIn", true);
           localStorage.setItem("user", JSON.stringify(response.data));
           window.location = "/SalesManager/sales";

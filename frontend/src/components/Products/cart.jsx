@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/cart.css";
 import Axios from "axios";
-import NavBar from "../../navbar";
+import NavBar from "../ReusableNavbar";
 
 var cartItem = [];
 
@@ -22,7 +22,7 @@ class Cart extends React.Component {
       cartItem = [];
     } else {
       cartItem.map((item) => {
-        tot = tot + item.product.price * item.qty;
+        return (tot = tot + item.product.price * item.qty);
       });
 
       localStorage.setItem("cartTotal", tot);
@@ -39,8 +39,8 @@ class Cart extends React.Component {
       cartItem = [];
     }
     console.log(cartItem);
-    for (var i = 0; i < cartItem.length; i++) {
-      if (cartItem[i].product._id == productOBJ._id) {
+    for (i = 0; i < cartItem.length; i++) {
+      if (cartItem[i].product._id === productOBJ._id) {
         index = i;
         break;
       }
@@ -57,7 +57,7 @@ class Cart extends React.Component {
     var tot = 0;
 
     cartItem.map((item) => {
-      tot = tot + item.product.price * item.qty;
+      return (tot = tot + item.product.price * item.qty);
     });
 
     this.setState({ total: tot });
