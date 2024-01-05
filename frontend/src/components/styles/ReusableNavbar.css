@@ -1,3 +1,8 @@
-.Navbar {
-  color: red;
+* {
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+}
+
+Nav {
+  background-color: yellow;
 }

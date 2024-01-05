@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/home.css";
 import Axios from "axios";
 import ReusableNavbar from "../ReusableNavbar";
+
 var cartItem = [];
 
 const styles = {
