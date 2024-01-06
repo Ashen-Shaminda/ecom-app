@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import "../components/styles/SearchBar.css";
 import Axios from "axios";
 
-const SearchBar = () => {
+const SearchBar = ({ setResults }) => {
   const [input, setInput] = useState("");
 
-  useEffect(() => {}, []);
+  //   useEffect(() => {}, []);
 
   const fetchData = (value) => {
     Axios.get("/product")
-      .then((response) => {
-        console.log(response.data);
+      .then(
+        (response) => response.data
+        //   console.log(JSON.stringify(response.data, null, 2));
+      )
+      .then((responseData) => {
+        const results = responseData.filter((product) => {
+          return value && product && product.name.toLowerCase().includes(value);
+        });
+        setResults(results);
       })
       .catch((error) => {
         console.log(error);
       });
-    //  fetch("localhost:3000/product")
-    //    .then((Response) => {
-    //      Response.json();
-    //    })
-    //    .then((json) => {
-    //      console.log(json);
-    //    });
   };
 
   const handleChange = (value) => {

@@ -3,9 +3,13 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "../components/styles/ReusableNavbar.css";
 import SearchBar from "./SearchBar";
+import { useState } from "react";
+import { SearchResults } from "./SearchResults";
 // import NavDropdown from "react-bootstrap/NavDropdown";
 
 function ReusableNavbar() {
+  const [results, setResults] = useState([]);
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -35,8 +39,8 @@ function ReusableNavbar() {
                 Something else here
               </NavDropdown.Item>
             </NavDropdown> */}
-            <SearchBar />
-            <div className=""></div>
+            <SearchBar setResults={setResults} />
+            <SearchResults results={results} />
           </Nav>
         </Navbar.Collapse>
       </Container>
