@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import "../components/styles/ReusableNavbar.css";
 import SearchBar from "./SearchBar";
 import { useState } from "react";
-import { SearchResults } from "./SearchResults";
+import { SearchResults } from "./SearchResultsList";
 // import NavDropdown from "react-bootstrap/NavDropdown";
 
 function ReusableNavbar() {
@@ -39,7 +39,7 @@ function ReusableNavbar() {
                 Something else here
               </NavDropdown.Item>
             </NavDropdown> */}
-            <SearchBar setResults={setResults} />
+            <SearchBar className="search-bar" setResults={setResults} />
             <SearchResults results={results} />
           </Nav>
         </Navbar.Collapse>

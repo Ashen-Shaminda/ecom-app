@@ -3,6 +3,6 @@
   box-sizing: border-box;
 }
 
-Nav {
-  background-color: yellow;
+.search-bar {
+  font-size: larger;
 }
