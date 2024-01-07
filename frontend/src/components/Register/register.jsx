@@ -50,17 +50,17 @@ class Register extends React.Component {
 
   render() {
     return (
-      <div style={styles} className='pb-5'>
+      <div style={{backgroundColor:"white"}}>
         <ReusableNavbar />
         <div className="register-container mt-5">
           <h2>Register a New Account</h2>
           <div className="mb-3">
-            <center>
+            {/* <center>
               <img style={{ width: "50%" }}
                 src="user.png"
                 alt="example"
               />
-            </center>
+            </center> */}
           </div>
           <form>
             <div className="form-group">

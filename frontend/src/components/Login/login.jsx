@@ -47,18 +47,18 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div style={styles} className="pb-3">
+      <div style={{backgroundColor:"white"}}>
         <NavBar />
 
         <div className="login-container mt-5 mb-5 col-3">
           <h2>Login to Your Account</h2>
           <div className="mb-3">
-            <center>
+            {/* <center>
               <img style={{ width: "50%" }} src="user.png" alt="example" />
-            </center>
+            </center> */}
           </div>
 
-          <form>
+          <form className="form">
             <div className="mb-3">
               <label className="form-label">Email address</label>
               <input

@@ -99,12 +99,12 @@ class Home extends React.Component {
     return (
       <>
         <ReusableNavbar />
-        <div style={styles}>
+        <div style={{backgroundColor:"white"}}>
           <div class="album py-5 bg-body-tertiary">
             <div class="container">
               <center>
                 <span
-                  className="text-white"
+                  className="text-black"
                   style={{ fontSize: "40px", fontWeight: "bold" }}
                 >
                   Product
