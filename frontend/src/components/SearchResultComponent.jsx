@@ -8,7 +8,7 @@ export const SearchResultComponent = ({ result }) => {
     <div
       className="search-component"
       onClick={(e) => {
-        navigate(`products/singleProduct/${result._id}`);
+        navigate(`../products/singleProduct/${result._id}`, { replace: true });
       }}
     >
       {result.name}
