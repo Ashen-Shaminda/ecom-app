@@ -6,41 +6,47 @@ import SearchBar from "./SearchBar";
 import { useState } from "react";
 import { SearchResults } from "./SearchResultsList";
 // import NavDropdown from "react-bootstrap/NavDropdown";
+import Dropdown from 'react-bootstrap/Dropdown';
+// import 'bootstrap/dist/css/bootstrap.min.css'; 
+// import 'bootstrap/dist/js/bootstrap.bundle.min';
+import './navbar.css' 
 
 function ReusableNavbar() {
   const [results, setResults] = useState([]);
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary" style={{ backgroundColor:"#0056b3" }} >
       <Container fluid>
-        <Navbar.Brand href="#">Ecommerce App</Navbar.Brand>
+        <Navbar.Brand href="#" style={{color:"white"}}>Ecommerce App</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: "100px", float: "left" }}
+            style={{ maxHeight: "100px" }}
             navbarScroll
             align="right"
           >
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/products">Products</Nav.Link>
-            <Nav.Link href="/login">Login</Nav.Link>
-            <Nav.Link href="/register">Register</Nav.Link>
-            <Nav.Link href="/seller">Register a Seller</Nav.Link>
-            <Nav.Link href="/products/cart">Cart</Nav.Link>
-            <Nav.Link href="/user">User</Nav.Link>
-            {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown> */}
-            <SearchBar className="search-bar" setResults={setResults} />
-            <SearchResults results={results} />
+            <ul>
+            <li><Nav.Link href="/" style={{color:"white"}}>Home</Nav.Link></li>
+            <li><Nav.Link href="/products" style={{color:"white"}}>Products</Nav.Link></li>
+            <li><Nav.Link href="/login" style={{color:"white"}}>Login</Nav.Link></li>
+            {/* <Nav.Link href="/register">Register</Nav.Link>
+            <Nav.Link href="/seller">Register a Seller</Nav.Link> */}
+            <li><Nav.Link href="/products/cart" style={{color:"white"}}>Cart</Nav.Link></li>
+            <li><Nav.Link href="/user" style={{color:"white"}}>User</Nav.Link></li>
+            <li><Dropdown>
+            <Dropdown.Toggle variant="light" id="account-dropdown" style={{color:"white", backgroundColor:"#0056b3"  }} >
+             Register
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item href='/register' style={{ color: "black", fontSize: "14px" }}>Customer Register</Dropdown.Item>
+              <Dropdown.Item href='/Seller' style={{ color: "black", fontSize: "14px" }}>Seller Register</Dropdown.Item> 
+            </Dropdown.Menu>
+          </Dropdown></li>
+
+          <li><SearchBar className="search-bar" setResults={setResults} /></li>
+            <li><SearchResults results={results} /></li>
+            </ul>
           </Nav>
         </Navbar.Collapse>
       </Container>

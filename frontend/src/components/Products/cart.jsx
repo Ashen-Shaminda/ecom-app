@@ -67,7 +67,7 @@ class Cart extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{backgroundColor:"white"}}>
         <NavBar />
 
         <h2>Cart</h2>

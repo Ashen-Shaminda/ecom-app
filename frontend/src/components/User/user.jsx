@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/user.css';
+import ReusableNavbar from '../ReusableNavbar';
 
 const styles = {
   background: 'linear-gradient(35deg, rgba(27,22,108,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 79%)',
@@ -25,46 +26,18 @@ class User extends React.Component {
 
   render() {
     return (
-      <div style={styles}>
-        <nav className="navbar" style={{ height: "65px" }}>
-          <a class="navbar-brand" href="#">
-            <img style={{ marginLeft: "20px" }} src="https://icon-library.com/images/e-commerce-icon-png/e-commerce-icon-png-17.jpg" width="40" height="40" alt="" />
-            <span className="ml-2"> <b> Apparex Clothing </b></span>
-          </a>
-          <ul>
-            <li>
-              <a href="/" style={{ fontSize: "18px" }}>Home</a>
-            </li>
-            <li>
-              <a href="/products" style={{ fontSize: "18px" }}>Product</a>
-            </li>
-            <li>
-              <a href="/login" style={{ fontSize: "18px" }}>Login</a>
-            </li>
-            <li>
-              <a href="/register" style={{ fontSize: "18px" }}>Register</a>
-            </li>
-            <li>
-              <a href="/Seller" style={{ fontSize: "18px" }}>Register As Seller</a>
-            </li>
-            <li>
-              <a href="/products/cart" style={{ fontSize: "18px" }}>Cart</a>
-            </li>
-            <li>
-              <a href="/user" style={{ fontSize: "18px" }}>Account</a>
-            </li>
-          </ul>
-        </nav>
+      <div style={{backgroundColor:"white"}}>
+        <ReusableNavbar/>
         <center>
           <h1 className='mt-3' style={{ fontWeight: "bold", color: "white" }}>Welcome ! </h1>
         </center>
         <div className="user-container mt-3" style={{ height: "700px", backgroundColor: "white" }}>
           <div className="mb-3">
             <center>
-              <img style={{ width: "30%" }}
+              {/* <img style={{ width: "30%" }}
                 src="user.png"
                 alt="example"
-              />
+              /> */}
               <h2 className='text-dark' style={{ fontSize: "35px", fontWeight: "bold" }}>{this.state.user.name}</h2>
             </center>
             <hr style={{ backgroundColor: "black" }} />

@@ -68,7 +68,7 @@ class CheckOut extends React.Component {
 
   render() {
     return (
-      <div style={styles}>
+      <div style={{backgroundColor:"white"}}>
         <NavBar />
         <div className="row mt-5 ">
           <div className="col-5 offset-1 mt-5">
