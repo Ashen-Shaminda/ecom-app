@@ -2,9 +2,9 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "../components/styles/ReusableNavbar.css";
-import SearchBar from "./SearchBar";
+import SearchBar from "./Search/SearchBar";
 import { useState } from "react";
-import { SearchResults } from "./SearchResultsList";
+import { SearchResults } from "./Search/SearchResultsList";
 // import NavDropdown from "react-bootstrap/NavDropdown";
 
 function ReusableNavbar() {
