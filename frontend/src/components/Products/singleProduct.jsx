@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/singleProduct.css';
 import Axios from 'axios';
+import ReusableNavbar from '../ReusableNavbar';
 var cartItem = [];
 
 
@@ -91,36 +92,8 @@ class SingleProduct extends React.Component {
 
     render() {
         return (
-            <div style={styles}>
-                <nav className="navbar" style={{ height: "65px" }}>
-                    <a class="navbar-brand" href="#">
-                        <img style={{ marginLeft: "20px" }} src="https://icon-library.com/images/e-commerce-icon-png/e-commerce-icon-png-17.jpg" width="40" height="40" alt="" />
-                        <span className="ml-2"> <b> Apparex Clothing </b></span>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="/" style={{ fontSize: "18px" }}>Home</a>
-                        </li>
-                        <li>
-                            <a href="/products" style={{ fontSize: "18px" }}>Product</a>
-                        </li>
-                        <li>
-                            <a href="/login" style={{ fontSize: "18px" }}>Login</a>
-                        </li>
-                        <li>
-                            <a href="/register" style={{ fontSize: "18px" }}>Register</a>
-                        </li>
-                        <li>
-                            <a href="/Seller" style={{ fontSize: "18px" }}>Register As Seller</a>
-                        </li>
-                        <li>
-                            <a href="/products/cart" style={{ fontSize: "18px" }}>Cart</a>
-                        </li>
-                        <li>
-                            <a href="/user" style={{ fontSize: "18px" }}>Account</a>
-                        </li>
-                    </ul>
-                </nav>
+            <div style={{backgroundColor:"white"}}>
+                <ReusableNavbar/>
 
                 <center><span className='text-white' style={{ fontSize: "40px", fontWeight: "bold", }}>{this.state.productObject.name}</span></center>
                 <hr style={{ backgroundColor: "white" }} />
