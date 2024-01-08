@@ -6,8 +6,6 @@ import Axios from "axios";
 const SearchBar = ({ setResults }) => {
   const [input, setInput] = useState("");
 
-  //   useEffect(() => {}, []);
-
   const fetchData = (value) => {
     Axios.get("/product")
       .then(

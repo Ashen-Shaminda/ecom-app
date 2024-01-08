@@ -2,7 +2,6 @@ import React from "react";
 import "../styles/login.css";
 import Axios from "axios";
 
-
 class AddCato extends React.Component {
   constructor(props) {
     super(props);
@@ -69,7 +68,6 @@ class AddCato extends React.Component {
         </header>
         <div className="container-fluid">
           <div className="row">
-            
             <div className="col-8 offset-1">
               <center>
                 <h1 className="mt-4" style={{ fontWeight: "bold" }}>

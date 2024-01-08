@@ -99,7 +99,7 @@ class Home extends React.Component {
     return (
       <>
         <ReusableNavbar />
-        <div style={{backgroundColor:"white"}}>
+        <div style={{ backgroundColor: "white" }}>
           <div class="album py-5 bg-body-tertiary">
             <div class="container">
               <center>
@@ -116,10 +116,7 @@ class Home extends React.Component {
                   <div class="col" key={product._id}>
                     <div class="card shadow-sm">
                       <a class="navbar-brand" href="#">
-                        <img
-                          src="https://www.eatlanka.com/wp-content/uploads/2021/11/Chocolate-cake-recipe-1200a.jpg"
-                          alt=""
-                        />
+                        <img src={product.image} alt="" />
                       </a>
                       <h1
                         style={{

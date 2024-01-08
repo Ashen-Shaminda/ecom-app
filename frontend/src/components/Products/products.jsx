@@ -32,10 +32,7 @@ class Products extends React.Component {
   renderProducts() {
     return this.state.dataList.map((product) => (
       <div className="product-card" key={product.id}>
-        <img
-          src="https://www.eatlanka.com/wp-content/uploads/2021/11/Chocolate-cake-recipe-1200a.jpg"
-          alt={product.name}
-        />
+        <img src={product.image} alt={product.name} />
         <h3>{product.name}</h3>
         <center>
           <p style={{ width: "70%" }}>Available Stock: {product.qty}</p>
@@ -55,16 +52,15 @@ class Products extends React.Component {
 
   render() {
     return (
-      <div style={{backgroundColor:"white"}}>
-        <ReusableNavbar/>
-        
+      <div style={{ backgroundColor: "white" }}>
+        <ReusableNavbar />
 
         <div style={{ height: "800px" }}>
           <div className="container-fluid mt-5">
             <center>
               <span
                 className="text-black"
-                style={{ fontSize: "40px", fontWeight: "bold", }}
+                style={{ fontSize: "40px", fontWeight: "bold" }}
               >
                 Product
               </span>
