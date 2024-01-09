@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
-import "../components/styles/SearchBar.css";
+import "../styles/SearchBar.css";
 import Axios from "axios";
 
 const SearchBar = ({ setResults }) => {
   const [input, setInput] = useState("");
-
-  //   useEffect(() => {}, []);
 
   const fetchData = (value) => {
     Axios.get("/product")

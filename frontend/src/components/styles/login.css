@@ -18,6 +18,10 @@
     text-decoration: none;
     color: #555;
   }
+
+  .form{
+    padding-top: 80px;
+  }
   
   .login-container {
     /* max-width: 400px; */

@@ -1,9 +1,11 @@
-import React from 'react';
-import Axios from 'axios';
-import '../styles/register.css';
+import React from "react";
+import Axios from "axios";
+import ReusableNavbar from "../ReusableNavbar";
+import "../styles/register.css";
 
 const styles = {
-  background: 'linear-gradient(35deg, rgba(27,22,108,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 79%)',
+  background:
+    "linear-gradient(35deg, rgba(27,22,108,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 79%)",
 };
 
 class Register extends React.Component {
@@ -14,28 +16,28 @@ class Register extends React.Component {
       email: "",
       pass: "",
       address: "",
-      contact: ""
-    }
+      contact: "",
+    };
   }
 
   async register() {
-
-    var passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    var passRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
     if (passRegex.test(this.state.pass)) {
-      Axios.post('/register', {
+      Axios.post("/register", {
         name: this.state.name,
         email: this.state.email,
         password: this.state.pass,
         address: this.state.address,
         phone: this.state.contact,
         state: "active",
-        role: "customer"
+        role: "customer",
       })
         .then(function (response) {
-          localStorage.setItem('isLogedIn', true);
-          localStorage.setItem('user', JSON.stringify(response.data))
-          window.location = '/User';
+          localStorage.setItem("isLogedIn", true);
+          localStorage.setItem("user", JSON.stringify(response.data));
+          window.location = "/User";
         })
         .catch(function (error) {
           console.log(error.data);
@@ -43,80 +45,94 @@ class Register extends React.Component {
     } else {
       alert("Password does not meet the security requirements");
     }
-
-
   }
 
   render() {
     return (
-      <div style={styles} className='pb-5'>
-        <nav className="navbar" style={{ height: "65px" }}>
-          <a class="navbar-brand" href="#">
-            <img style={{ marginLeft: "20px" }} src="https://icon-library.com/images/e-commerce-icon-png/e-commerce-icon-png-17.jpg" width="40" height="40" alt="" />
-            <span className="ml-2"> <b> Apparex Clothing </b></span>
-          </a>
-          <ul>
-            <li>
-              <a href="/" style={{ fontSize: "18px" }}>Home</a>
-            </li>
-            <li>
-              <a href="/products" style={{ fontSize: "18px" }}>Product</a>
-            </li>
-            <li>
-              <a href="/login" style={{ fontSize: "18px" }}>Login</a>
-            </li>
-            <li>
-              <a href="/register" style={{ fontSize: "18px" }}>Register</a>
-            </li>
-            <li>
-              <a href="/Seller" style={{ fontSize: "18px" }}>Register As Seller</a>
-            </li>
-            <li>
-              <a href="/products/cart" style={{ fontSize: "18px" }}>Cart</a>
-            </li>
-            <li>
-              <a href="/user" style={{ fontSize: "18px" }}>Account</a>
-            </li>
-          </ul>
-        </nav>
+      <div style={{ backgroundColor: "white" }}>
+        <ReusableNavbar />
         <div className="register-container mt-5">
           <h2>Register a New Account</h2>
           <div className="mb-3">
-            <center>
+            {/* <center>
               <img style={{ width: "50%" }}
                 src="user.png"
                 alt="example"
               />
-            </center>
+            </center> */}
           </div>
           <form>
             <div className="form-group">
               <label htmlFor="name">Name:</label>
-              <input class="form-control" type="text" id="name" name="name" required onChange={(e) => this.setState({ name: e.target.value })} />
+              <input
+                class="form-control"
+                type="text"
+                id="name"
+                name="name"
+                required
+                onChange={(e) => this.setState({ name: e.target.value })}
+              />
             </div>
             <div className="form-group">
               <label htmlFor="email">Email:</label>
-              <input class="form-control" type="email" id="email" name="email" required onChange={(e) => this.setState({ email: e.target.value })} />
+              <input
+                class="form-control"
+                type="email"
+                id="email"
+                name="email"
+                required
+                onChange={(e) => this.setState({ email: e.target.value })}
+              />
             </div>
             <div className="form-group">
               <label htmlFor="password">Password:</label>
-              <input class="form-control" type="password" id="password" name="password" required onChange={(e) => this.setState({ pass: e.target.value })} />
+              <input
+                class="form-control"
+                type="password"
+                id="password"
+                name="password"
+                required
+                onChange={(e) => this.setState({ pass: e.target.value })}
+              />
             </div>
             <div className="form-group">
               <label htmlFor="address">Address:</label>
-              <input class="form-control" type="text" id="address" name="address" required onChange={(e) => this.setState({ address: e.target.value })} />
+              <input
+                class="form-control"
+                type="text"
+                id="address"
+                name="address"
+                required
+                onChange={(e) => this.setState({ address: e.target.value })}
+              />
             </div>
             <div className="form-group">
               <label htmlFor="contact">Contact:</label>
-              <input class="form-control" type="text" id="contact" name="contact" required onChange={(e) => this.setState({ contact: e.target.value })} />
+              <input
+                class="form-control"
+                type="text"
+                id="contact"
+                name="contact"
+                required
+                onChange={(e) => this.setState({ contact: e.target.value })}
+              />
             </div>
-            <button type="button" className="register-button mt-4" onClick={async () => { await this.register(); }} >Register</button>
+            <button
+              type="button"
+              className="register-button mt-4"
+              onClick={async () => {
+                await this.register();
+              }}
+            >
+              Register
+            </button>
           </form>
-          <p>Already have an account? <a href="/login">Login</a></p>
+          <p>
+            Already have an account? <a href="/login">Login</a>
+          </p>
         </div>
       </div>
     );
-  };
-
+  }
 }
 export default Register;

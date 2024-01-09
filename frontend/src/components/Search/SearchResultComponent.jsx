@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/SearchResultComponent.css";
+import "../styles/SearchResultComponent.css";
 import { useNavigate } from "react-router-dom";
 
 export const SearchResultComponent = ({ result }) => {
@@ -8,7 +8,7 @@ export const SearchResultComponent = ({ result }) => {
     <div
       className="search-component"
       onClick={(e) => {
-        navigate(`products/singleProduct/${result._id}`);
+        navigate(`../products/singleProduct/${result._id}`, { replace: true });
       }}
     >
       {result.name}
